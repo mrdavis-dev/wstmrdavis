@@ -6,7 +6,7 @@ $password = $_POST['pass'];
 // $options = array("cost" => 4);
 // $hashPassword = password_hash($password, PASSWORD_BCRYPT, $options);
 
-$consulta = $link->prepare("SELECT * FROM users WHERE username=? AND password=?");
+$consulta = $db->prepare("SELECT * FROM users WHERE username=? AND password=?");
 $consulta->bind_param('ss',$usuario,$password);
 $consulta->execute();
 
@@ -16,5 +16,5 @@ if($res = $result->fetch_assoc()){
 }
 
 $consulta->close();
-$link->close();
+$db->close();
 ?>
