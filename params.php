@@ -2,11 +2,21 @@
 
 include("conn.php");
 
-$res = $db->query("SELECT nombre FROM cobradores");
+$nombrecon = $_GET["b"];
+$tipocontrato = $_GET["t"];
+$tipocontrato = substr($tipocontrato,0,1);
 
-$datos = array();
 
-foreach ($res as $row){
-    $datos[]=$row;
+$sql = "SELECT idcontrato, nombre FROM contratos where (tipocliente = '$tipocontrato' and (nombre like '%" . $nombrecon . "%'))";
+
+$result = $db->query($sql);
+if ($result->num_rows > 0) {
+    $datos = array();
+    foreach ($result as $row) {
+        $datos[] = $row;
+    }
+    echo json_encode($datos);
+} else if(empty($tipocontrato)){
+    echo json_encode('Error');
+    // echo '<script>console.log("error")</script>';
 }
-echo json_encode($datos);
