@@ -1,0 +1,2 @@
+http://localhost/main-sach/pago_cuenta.php?id=4&tipo=R&monto=0.25&medio=01&numero=9999&dispositivo=12345&obs=ENE-2022,DIC-2022
+wstmrdavis/pago_cuenta.php?id=1218&tipo=ESPECIAL&monto=1&medio=01+EFECTIVO&numero=&dispositivo=&obs=test

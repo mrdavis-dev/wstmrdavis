@@ -1,0 +1,20 @@
+
+<?php
+echo "asdasd";
+header('Content-Type: application/json');
+include 'conneroute.php';
+
+$sql = "SELECT * FROM clientes ORDER BY idCliente";
+$result = $db->query($sql);
+if ($result->num_rows > 0) {
+    $capacidad = mysqli_num_rows($result);
+    $datos_articulos = array();
+
+    foreach ($result as $row) {
+        $datos_articulos[] = $row;
+        }
+        //print_r($datos_articulos);
+       echo json_encode($datos_articulos);
+    }
+
+?>
